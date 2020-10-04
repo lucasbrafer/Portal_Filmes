@@ -1,38 +1,69 @@
+/* Base Styles */
+
+:root {
+  font-size: 70%;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 95%;
+  }
+}
+
+/* Lancamentos Styles */
 #lancamentos {
-    text-align:  center;
-    color: #FFFFFF;
+  text-align: center;
+  color: #ffffff;
 }
 
 #lancamentos .carousel-inner {
-    padding: 50px 0;
+  padding: 50px 0;
 }
 
 #lancamentos h1 {
-    padding-top: 25px;
+  padding-top: 25px;
 }
 
 #lancamentos .carousel-inner {
-    padding: 40px;
+  padding: 20px 40px 50px 40px;
 }
 
 #lancamentos #carouselExampleIndicators {
-    background-image: linear-gradient(to right,#0074D9, #3d8ace)
+  background-image: linear-gradient(to right, #0074d9, #3d8ace);
 }
 
 #lancamentos .lancamentoInfo {
-    display: inline;
-    text-align: left !important;
+  text-align: left !important;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
 }
 
 #lancamentos .VideoFrame {
-    width: 40vw;
-    height: 40vh;
-    margin-right: 40px;
-    float: left;
-    border: 0;
+  width: 80vw;
+  height: 50vw;
+  border: 0;
 }
 
 #lancamentos .checked {
-    color: orange;
+  color: orange;
 }
 
+/* Desktop */
+@media (min-width: 1025px) {
+  #lancamentos .carousel-inner {
+    padding: 40px !important;
+  }
+
+  #lancamentos .lancamentoInfo {
+    display: inline;
+  }
+
+  #lancamentos .VideoFrame {
+    width: 40vw !important;
+    height: 40vh !important;
+    margin-right: 40px;
+    float: left;
+    border: 0;
+  }
+}
