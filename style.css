@@ -1,0 +1,38 @@
+#lancamentos {
+    text-align:  center;
+    color: #FFFFFF;
+}
+
+#lancamentos .carousel-inner {
+    padding: 50px 0;
+}
+
+#lancamentos h1 {
+    padding-top: 25px;
+}
+
+#lancamentos .carousel-inner {
+    padding: 40px;
+}
+
+#lancamentos #carouselExampleIndicators {
+    background-image: linear-gradient(to right,#0074D9, #3d8ace)
+}
+
+#lancamentos .lancamentoInfo {
+    display: inline;
+    text-align: left !important;
+}
+
+#lancamentos .VideoFrame {
+    width: 40vw;
+    height: 40vh;
+    margin-right: 40px;
+    float: left;
+    border: 0;
+}
+
+#lancamentos .checked {
+    color: orange;
+}
+
