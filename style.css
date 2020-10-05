@@ -4,14 +4,35 @@
   font-size: 70%;
 }
 
+/* apenas mobile ficara com 70% */
 @media (min-width: 700px) {
   :root {
     font-size: 95%;
   }
 }
 
+/* para telas 1080p grid */
+@media (min-width: 1900px) {
+    .container { 
+        max-width: 1440px !important;
+    }
+}
+
+/* Desaparecer IMG Mobile */
+.only-desk img {
+    display: none; 
+}
+
+@media (min-width: 1025px) { 
+    .only-desk img {
+        display: block !important; 
+    }
+}
+
+
 /* Lancamentos Styles */
 #lancamentos {
+  margin-top: 50px;
   text-align: center;
   color: #ffffff;
 }
@@ -66,4 +87,44 @@
     float: left;
     border: 0;
   }
+}
+
+/* Destaque Styles */
+#destaque {
+    background-color: #FFFFFF;
+    margin-top: 35px;
+}
+
+#destaque h2 {
+    margin-bottom: 35px;
+    color: #0074d9;
+}
+
+#destaque img:hover {
+    transition: transform .2s;
+}
+
+#destaque img:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 5px 30px rgba(33,33,33,.2); 
+}
+
+#destaque button {
+    margin-right: 60px;
+    margin-top: 20px;
+    background-color: #0074d9;
+}
+
+
+/* Avaliacoes Styles */
+
+#avaliacoes {
+    background-color: #F0F0F7;
+    margin-top: 25px;
+    padding-top: 35px;
+}
+
+#avaliacoes h2 {
+    margin-bottom: 45px;
+    color: #0074d9;
 }
