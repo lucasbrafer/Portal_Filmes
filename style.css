@@ -18,17 +18,37 @@
     }
 }
 
-/* Desaparecer IMG Mobile */
-.only-desk img {
+.only-lg img {
     display: none; 
 }
 
+/* Manter img apenas lg */
 @media (min-width: 1025px) { 
-    .only-desk img {
+    .only-lg img {
         display: block !important; 
     }
 }
 
+.only-xl img {
+    display: none; 
+}
+
+/* Manter img apenas xl */
+@media (min-width: 1900px) { 
+    .only-xl img {
+        display: block !important; 
+    }
+}
+.checked {
+    color: orange;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 
 /* Lancamentos Styles */
 #lancamentos {
@@ -64,10 +84,6 @@
   width: 80vw;
   height: 50vw;
   border: 0;
-}
-
-#lancamentos .checked {
-  color: orange;
 }
 
 /* Desktop */
@@ -127,4 +143,21 @@
 #avaliacoes h2 {
     margin-bottom: 45px;
     color: #0074d9;
+}
+
+#avaliacoes .card-header {
+    display: flex;
+    align-items: center;
+}
+
+#avaliacoes .card-title {
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+#avaliacoes button {
+    margin-right: 60px;
+    margin-top: 20px;
+    background-color: #0074d9;
 }
