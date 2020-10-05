@@ -159,5 +159,69 @@
 #avaliacoes button {
     margin-right: 60px;
     margin-top: 20px;
+    margin-bottom: 40px;
     background-color: #0074d9;
 }
+
+/* Entrevistas */
+
+#entrevistas {
+    margin-top: 25px;
+    padding-top: 25px;
+    margin-bottom: 35px;
+}
+
+#entrevistas .VideoFrame {
+    width: 40vw;
+    height: 50vw;
+    border: 0;
+}
+
+#entrevistas h2 {
+    margin-bottom: 45px;
+    color: #0074d9;
+}
+  
+/* Desktop */
+@media (min-width: 1025px) {
+    #entrevistas .VideoFrame {
+      width: 20vw !important;
+      height: 20vh !important;
+      margin-right: 40px;
+      border: 0;
+    }
+}
+
+/* novidades-sobre Styles */
+#novidades {
+    padding-top: 55px;
+    padding-bottom: 55px;
+    background-color: #F0F0F7 !important;
+}
+
+#novidades h2 {
+    color: #0074d9;
+}
+
+#novidades h5 {
+    color: #0074d9;
+}
+
+#novidades i {
+    color: #0074d9;
+}
+
+/* Footer */
+footer {
+    background-image: linear-gradient(to right, #0074d9, #3d8ace);
+    color: #FFFFFF;
+    height: 100px;
+    padding-top: 35px;
+}
+
+footer span { 
+    font-size: 1.2rem;
+    text-align: center !important;
+}
+
+
