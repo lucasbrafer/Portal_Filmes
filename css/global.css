@@ -1,0 +1,299 @@
+/* Base Styles */
+
+:root {
+    font-size: 70%;
+}
+
+
+/* apenas mobile ficara com 70% */
+
+@media (min-width: 700px) {
+     :root {
+        font-size: 95%;
+    }
+}
+
+@media (min-width: 700px) {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        text-align: left !important;
+    }
+    .text-center-mobile {
+        text-align: left !important;
+    }
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.text-center-mobile {
+    text-align: center !important;
+}
+
+
+/* para telas 1080p grid */
+
+@media (min-width: 1900px) {
+    .container {
+        max-width: 1440px !important;
+    }
+}
+
+.only-lg img {
+    display: none;
+}
+
+
+/* Manter img apenas lg */
+
+@media (min-width: 1025px) {
+    .only-lg img {
+        display: block !important;
+    }
+}
+
+.only-xl img {
+    display: none;
+}
+
+
+/* Manter img apenas xl */
+
+@media (min-width: 1900px) {
+    .only-xl img {
+        display: block !important;
+    }
+}
+
+.checked {
+    color: orange;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+/* Lancamentos Styles */
+
+#lancamentos {
+    margin-top: 50px;
+    text-align: center;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #0074d9, #3d8ace);
+}
+
+#lancamentos .carousel-inner {
+    padding: 50px 0;
+}
+
+#lancamentos h1 {
+    padding-top: 25px;
+}
+
+#lancamentos .carousel-inner {
+    padding: 20px 40px 50px 40px;
+}
+
+#lancamentos #carouselExampleIndicators {
+    background-image: linear-gradient(to right, #0074d9, #3d8ace);
+}
+
+#lancamentos .lancamentoInfo {
+    text-align: left !important;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+#lancamentos .VideoFrame {
+    width: 80vw;
+    height: 50vw;
+    border: 0;
+}
+
+
+/* Desktop */
+
+@media (min-width: 1025px) {
+    #lancamentos .carousel-inner {
+        padding: 40px !important;
+    }
+    #lancamentos .lancamentoInfo {
+        display: inline;
+    }
+    #lancamentos .VideoFrame {
+        width: auto !important;
+        height: 30vh !important;
+        margin-right: 35px;
+        float: left;
+        border: 0;
+    }
+}
+
+
+/* Destaque Styles */
+
+#destaque {
+    background-color: #ffffff;
+    margin-top: 35px;
+}
+
+#destaque h2 {
+    margin-bottom: 35px;
+    color: #0074d9;
+}
+
+#destaque img {
+    margin-bottom: 3rem;
+    max-height: 26rem;
+    max-width: auto;
+}
+
+#destaque img:hover {
+    transition: transform 0.2s;
+}
+
+#destaque img:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 5px 30px rgba(33, 33, 33, 0.2);
+}
+
+#destaque button {
+    margin-right: 60px;
+    margin-top: 20px;
+    background-color: #0074d9;
+}
+
+
+/* Avaliacoes Styles */
+
+#avaliacoes {
+    background-color: #f0f0f7;
+    margin-top: 25px;
+    padding-top: 35px;
+}
+
+#avaliacoes h2 {
+    margin-bottom: 1.5rem;
+    color: #0074d9;
+}
+
+#avaliacoes .card-header {
+    display: flex;
+    align-items: center;
+}
+
+#avaliacoes .card-title {
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+#avaliacoes button {
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #0074d9;
+}
+
+
+/* Entrevistas */
+
+#entrevistas {
+    margin-top: 25px;
+    padding-top: 25px;
+    margin-bottom: 35px;
+}
+
+#entrevistas .VideoFrame {
+    width: 40vw;
+    height: 50vw;
+    border: 0;
+}
+
+#entrevistas h2 {
+    margin-bottom: 45px;
+    color: #0074d9;
+}
+
+
+/* Desktop */
+
+@media (min-width: 1025px) {
+    #entrevistas .VideoFrame {
+        width: 20vw !important;
+        height: 20vh !important;
+        margin-right: 40px;
+        border: 0;
+    }
+}
+
+
+/* novidades-sobre Styles */
+
+#novidades {
+    padding-top: 55px;
+    padding-bottom: 55px;
+    background-color: #f0f0f7 !important;
+}
+
+#novidades h2 {
+    color: #0074d9;
+}
+
+#novidades h5 {
+    color: #0074d9;
+}
+
+#novidades i {
+    color: #0074d9;
+}
+
+#novidades img {
+    max-width: 20rem;
+    max-height: auto;
+}
+
+
+/* Footer */
+
+footer {
+    background-image: linear-gradient(to right, #0074d9, #3d8ace);
+    color: #ffffff;
+    height: 100px;
+    padding-top: 35px;
+}
+
+footer span {
+    font-size: 1.2rem;
+    text-align: center !important;
+}
+
+@media (max-width: 800px) {
+    .images-destaque-mobile {
+        margin-top: 5%;
+        justify-content: center !important;
+        display: flex !important;
+    }
+}
+
+@media (min-width: 800px) {
+    .d-block-mobile {
+        display: flex;
+        justify-content: center !important;
+    }
+}
+
+d-block-mobile {
+    display: block !important;
+}

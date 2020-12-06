@@ -1,614 +1,348 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
     <title>HeroMovie</title>
 
     <!-- Meu estilo CSS-->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="favicon-32x32.png" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" />
+    <script defer src="js/global.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <!-- Add icon library -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">HeroMovie</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="#">HeroMovie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#lancamentos"
-                >Lançamentos <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#destaque">Em destaque</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#avaliacoes">Avaliações</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#entrevistas"
-                >Entrevistas & Markingof</a
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lancamentos">Lançamentos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destaque">Em destaque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#avaliacoes">Avaliações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#entrevistas">Entrevistas & Markingof</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#novidades">Novidades</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+                    </li>
+                </ul>
+                <div class="justify-content-center">
+                    <form class="form-inline my-2 my-lg-0" style="display: inline-flex">
+                        <input id="search_input" oninput="onInput()" class="form-control mr-sm-2 ml-auto" type="search" placeholder="Pesquisar" list="dropdown-menu" />
+                        <datalist id="dropdown-menu"></datalist>
+                    </form>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
-      <section id="lancamentos">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide carousel-fade"
-          data-ride="carousel"
-        >
-          <div class="container">
-            <h1>Lançamentos</h1>
-          </div>
-          <ol class="carousel-indicators carousel-fade">
-            <li
+        <section id="lancamentos">
+            <div id="releases-carousel" class="carousel slide" data-ride="carousel">
+                <div class="container pt-4">
+                    <h1>Lançamentos</h1>
+                </div>
+                <ol class="carousel-indicators">
+                    <!-- <li
               data-target="#carouselExampleIndicators"
               data-slide-to="0"
               class="active"
             ></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <div class="lancamentoInfo">
-                <h3>Nome do Filme</h3>
-                <!-- Sinopse -->
-                <p>
-                  <b>Sinopse: </b>Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Proin sed cursus sem, at aliquet orci.
-                  Praesent ac pellentesque est. Phasellus ut sapien lacinia,
-                  pellentesque nibh semper, scelerisque nisi. Suspendisse
-                  commodo elementum turpis lacinia tempor. Quisque aliquet elit
-                  sit amet ante lobortis, in auctor sem porttitor. Aliquam
-                  egestas pulvinar tellus id rhoncus. Suspendisse commodo ligula
-                  at tortor pellentesque scelerisque. Nam tempor sapien id odio
-                  rhoncus, in consequat eros hendrerit. Fusce mollis rutrum eros
-                  id maximus. In dignissim venenatis leo, vitae vestibulum orci
-                  consectetur ac. Suspendisse consectetur eget nisl in
-                  efficitur.
-                </p>
-                <!-- Infos -->
-                <div class="row">
-                  <div class="col"><b>Diretor: </b> Lucas Films</div>
-                  <div class="col"><b>Roteiro: </b> Lucas Films</div>
-                  <div class="col"><b>Estreia: </b> Lucas Films</div>
-                </div>
-                <!-- Elenco -->
-                <div class="row mt-3">
-                  <div class="col">
-                    <p><b>Elenco: </b> Ator 1 | Ator 2 | Ator 3 | Ator 4 |</p>
-                  </div>
-                </div>
-                <!-- Avaliacao -->
-                <div class="row">
-                  <div class="col">
-                    <p>
-                      <b>Estrelas: </b>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li> -->
+                </ol>
+                <div class="carousel-inner"></div>
             </div>
-            <div class="carousel-item">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <div class="lancamentoInfo">
-                <h3>Nome do Filme</h3>
-                <!-- Sinopse -->
-                <p>
-                  <b>Sinopse: </b>Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Proin sed cursus sem, at aliquet orci.
-                  Praesent ac pellentesque est. Phasellus ut sapien lacinia,
-                  pellentesque nibh semper, scelerisque nisi. Suspendisse
-                  commodo elementum turpis lacinia tempor. Quisque aliquet elit
-                  sit amet ante lobortis, in auctor sem porttitor. Aliquam
-                  egestas pulvinar tellus id rhoncus. Suspendisse commodo ligula
-                  at tortor pellentesque scelerisque. Nam tempor sapien id odio
-                  rhoncus, in consequat eros hendrerit. Fusce mollis rutrum eros
-                  id maximus. In dignissim venenatis leo, vitae vestibulum orci
-                  consectetur ac. Suspendisse consectetur eget nisl in
-                  efficitur.
-                </p>
-                <!-- Infos -->
-                <div class="row">
-                  <div class="col"><b>Diretor: </b> Lucas Films</div>
-                  <div class="col"><b>Roteiro: </b> Lucas Films</div>
-                  <div class="col"><b>Estreia: </b> Lucas Films</div>
-                </div>
-                <!-- Elenco -->
-                <div class="row mt-3">
-                  <div class="col">
-                    <p><b>Elenco: </b> Ator 1 | Ator 2 | Ator 3 | Ator 4 |</p>
-                  </div>
-                </div>
-                <!-- Avaliacao -->
-                <div class="row">
-                  <div class="col">
-                    <p>
-                      <b>Estrelas: </b>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star"></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <div class="lancamentoInfo">
-                <h3>Nome do Filme</h3>
-                <!-- Sinopse -->
-                <p>
-                  <b>Sinopse: </b>Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Proin sed cursus sem, at aliquet orci.
-                  Praesent ac pellentesque est. Phasellus ut sapien lacinia,
-                  pellentesque nibh semper, scelerisque nisi. Suspendisse
-                  commodo elementum turpis lacinia tempor. Quisque aliquet elit
-                  sit amet ante lobortis, in auctor sem porttitor. Aliquam
-                  egestas pulvinar tellus id rhoncus. Suspendisse commodo ligula
-                  at tortor pellentesque scelerisque. Nam tempor sapien id odio
-                  rhoncus, in consequat eros hendrerit. Fusce mollis rutrum eros
-                  id maximus. In dignissim venenatis leo, vitae vestibulum orci
-                  consectetur ac. Suspendisse consectetur eget nisl in
-                  efficitur.
-                </p>
-                <!-- Infos -->
-                <div class="row">
-                  <div class="col"><b>Diretor: </b> Lucas Films</div>
-                  <div class="col"><b>Roteiro: </b> Lucas Films</div>
-                  <div class="col"><b>Estreia: </b> Lucas Films</div>
-                </div>
-                <!-- Elenco -->
-                <div class="row mt-3">
-                  <div class="col">
-                    <p><b>Elenco: </b> Ator 1 | Ator 2 | Ator 3 | Ator 4 |</p>
-                  </div>
-                </div>
-                <!-- Avaliacao -->
-                <div class="row">
-                  <div class="col">
-                    <p>
-                      <b>Estrelas: </b>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star"></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <div class="lancamentoInfo">
-                <h3>Nome do Filme</h3>
-                <!-- Sinopse -->
-                <p>
-                  <b>Sinopse: </b>Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Proin sed cursus sem, at aliquet orci.
-                  Praesent ac pellentesque est. Phasellus ut sapien lacinia,
-                  pellentesque nibh semper, scelerisque nisi. Suspendisse
-                  commodo elementum turpis lacinia tempor. Quisque aliquet elit
-                  sit amet ante lobortis, in auctor sem porttitor. Aliquam
-                  egestas pulvinar tellus id rhoncus. Suspendisse commodo ligula
-                  at tortor pellentesque scelerisque. Nam tempor sapien id odio
-                  rhoncus, in consequat eros hendrerit. Fusce mollis rutrum eros
-                  id maximus. In dignissim venenatis leo, vitae vestibulum orci
-                  consectetur ac. Suspendisse consectetur eget nisl in
-                  efficitur.
-                </p>
-                <!-- Infos -->
-                <div class="row">
-                  <div class="col"><b>Diretor: </b> Lucas Films</div>
-                  <div class="col"><b>Roteiro: </b> Lucas Films</div>
-                  <div class="col"><b>Estreia: </b> Lucas Films</div>
-                </div>
-                <!-- Elenco -->
-                <div class="row mt-3">
-                  <div class="col">
-                    <p><b>Elenco: </b> Ator 1 | Ator 2 | Ator 3 | Ator 4 |</p>
-                  </div>
-                </div>
-                <!-- Avaliacao -->
-                <div class="row">
-                  <div class="col">
-                    <p>
-                      <b>Estrelas: </b>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star checked"></span>
-                      <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="destaque">
-        <div class="container">
-          <div class="row d-flex justify-content-between">
-            <div class="col">
-              <h2>Em Destaque</h2>
-            </div>
-            <div class="col-lg-2 col-sm-3">
-              <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
+        <section id="destaque">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col">
+                        <h2>Em Destaque</h2>
+                    </div>
+                    <div class="col-lg-2 col-sm-3">
+                        <div class="form-group">
+                            <select class="form-control" id="exampleFormControlSelect1">
                   <option>Categoria: Todos</option>
                   <option>Categoria: Romance</option>
                   <option>Categoria: Comédia</option>
                   <option>Categoria: Aventura</option>
                   <option>Categoria: Terror</option>
                 </select>
-              </div>
-            </div>
-          </div>
-          <div class="row d-flex justify-content-between">
-            <div
-              class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center"
-            >
-              <img
-                src="https://resizing.flixster.com/jdfT8JRNUCnyjbXUNxS6ru6-Ayk=/206x345/v2/https://flxt.tmsimg.com/assets/p17133396_p_v13_ad.jpg"
-              />
-            </div>
-            <div
-              class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center"
-            >
-              <img
-                src="https://resizing.flixster.com/jdfT8JRNUCnyjbXUNxS6ru6-Ayk=/206x345/v2/https://flxt.tmsimg.com/assets/p17133396_p_v13_ad.jpg"
-              />
-            </div>
-            <div
-              class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center"
-            >
-              <img
-                src="https://resizing.flixster.com/jdfT8JRNUCnyjbXUNxS6ru6-Ayk=/206x345/v2/https://flxt.tmsimg.com/assets/p17133396_p_v13_ad.jpg"
-              />
-            </div>
-            <div
-              class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center"
-            >
-              <img
-                src="https://resizing.flixster.com/jdfT8JRNUCnyjbXUNxS6ru6-Ayk=/206x345/v2/https://flxt.tmsimg.com/assets/p17133396_p_v13_ad.jpg"
-              />
-            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between">
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                        <img src="https://image.tmdb.org/t/p/w500//spcpJtT7Ac3YAHy9a36uP3B0Yhd.jpg" />
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                        <img src="https://image.tmdb.org/t/p/w500//kQDfB6dPYoiuUtbSYusNopSXyVp.jpg" />
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                        <img src="https://image.tmdb.org/t/p/w500//aRYrV4EloKRgv0lCqzGtXFt3dXn.jpg" />
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                        <img src="https://image.tmdb.org/t/p/w500//ztL8FMzGSNGfptVkfA0LCrqZNsO.jpg" />
+                    </div>
 
-            <!-- <div class="col d-none d-xl-block justify-content-center">
+                    <!-- <div class="col d-none d-xl-block justify-content-center">
               <img
                 src="https://resizing.flixster.com/jdfT8JRNUCnyjbXUNxS6ru6-Ayk=/206x345/v2/https://flxt.tmsimg.com/assets/p17133396_p_v13_ad.jpg"
               />
             </div> -->
-          </div>
-          <div class="row mt-4 flex-row-reverse">
-            <button type="button" class="btn btn-primary">
-              <strong>+ Carregar Mais Filmes</strong>
-            </button>
-          </div>
-        </div>
-      </section>
+                </div>
+                <div class="row mt-4 flex-row-reverse">
+                    <a href="https://www.imdb.com/chart/top/?ref_=nv_mv_250" target="_blank">
+                        <button type="button" class="btn btn-primary">
+                <strong>+ Carregar Mais Filmes</strong>
+              </button>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-      <section id="avaliacoes">
-        <div class="container">
-          <h2>Últimas Avaliações</h2>
-          <div class="row">
-            <div class="col justify-content-center d-flex mt-4">
-              <div class="card" style="width: 20rem">
-                <div class="card-header">
-                  <img
-                    src="https://ui-avatars.com/api/?name=John+Doe.png"
-                    alt="Avatar"
-                    class="avatar"
-                  />
-                  <h5 class="card-title">Vanessa Taynara</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="ml-4">04/10/2020</span>
-                </div>
-              </div>
-            </div>
-            <div class="col justify-content-center d-flex mt-4">
-              <div class="card" style="width: 20rem">
-                <div class="card-header">
-                  <img
-                    src="https://ui-avatars.com/api/?name=John+Doe.png"
-                    alt="Avatar"
-                    class="avatar"
-                  />
-                  <h5 class="card-title">Vanessa Taynara</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="ml-4">04/10/2020</span>
-                </div>
-              </div>
-            </div>
-            <div class="col only-lg justify-content-center d-flex mt-4">
-              <div class="card" style="width: 20rem">
-                <div class="card-header">
-                  <img
-                    src="https://ui-avatars.com/api/?name=John+Doe.png"
-                    alt="Avatar"
-                    class="avatar"
-                  />
-                  <h5 class="card-title">Vanessa Taynara</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="ml-4">04/10/2020</span>
-                </div>
-              </div>
-            </div>
+        <section id="avaliacoes">
+            <div class="container pb-4">
+                <h2>Últimas Avaliações</h2>
+                <div class="row">
+                    <div class="col justify-content-center d-flex mt-4">
+                        <div class="card" style="width: 21rem">
+                            <div class="card-header">
+                                <img src="https://ui-avatars.com/api/?name=Angela+Cabral.png" alt="Avatar" class="avatar" />
+                                <h5 class="card-title">Angela Cabral</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Scooby - O Filme, é um projeto meio decepcionante, é um filme sem um tom certamente definido, parece não ter um caminho certo a ser seguido, mas ele caminha, mas, em momento algum ganha força. Não é muito engraçado, e as piadas são pouco inspiradas e
+                                    em alguns momentos até fora de tom.
+                                </p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="ml-4">24/10/2020</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col justify-content-center d-flex mt-4">
+                        <div class="card" style="width: 21rem">
+                            <div class="card-header">
+                                <img src="https://ui-avatars.com/api/?name=Vanessa+Taynara.png" alt="Avatar" class="avatar" />
+                                <h5 class="card-title">Vanessa Taynara</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Me fez rir, chorar, apertar meu amigo, estalar o dedo, balançar o pé... PERFEITO! Dei 5 estrelinhas mas merece 1000! Filme bom é aquele, que além de ter uma produção de qualidade (atores, efeitos...) transmite emoção pela história e esse não deixou a
+                                    desejar. Indico, indico, indico!
+                                </p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="ml-4">04/11/2020</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col only-lg justify-content-center d-flex mt-4">
+                        <div class="card" style="width: 21rem">
+                            <div class="card-header">
+                                <img src="https://ui-avatars.com/api/?name=Pedro+Robson.png" alt="Avatar" class="avatar" />
+                                <h5 class="card-title">Pedro Robson</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    A espera de 10 anos valeu sim à pena. Filme fez jus a um encerramento de uma saga. Marvel nos deu tudo que queríamos. A batalha final é arrepiante, te leva no ápice de todas as emoções. Agora só nos resta aguardar pra ver com o que a Marvel nos fazerá
+                                    sonhar daqui pra frente. Obrigado Marvel por essa experiência nessa década!
+                                </p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="ml-4">12/11/2020</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col only-xl justify-content-center d-flex mt-4">
-              <div class="card" style="width: 20rem">
-                <div class="card-header">
-                  <img
-                    src="https://ui-avatars.com/api/?name=John+Doe.png"
-                    alt="Avatar"
-                    class="avatar"
-                  />
-                  <h5 class="card-title">Vanessa Taynara</h5>
+                    <div class="col only-xl justify-content-center d-flex mt-4">
+                        <div class="card" style="width: 21rem">
+                            <div class="card-header">
+                                <img src="https://ui-avatars.com/api/?name=Filipe+Augusto.png" alt="Avatar" class="avatar" />
+                                <h5 class="card-title">Filipe Augusto</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    A essência do filme é idêntica à HQ criada por Jack Kirby e Stan Lee,o roteiro provou-se à altura do desafio,honra heróis da Marvel com magnificência e explora os pontos fortes dos seus personagens,sensacional em vários quesitos:ação,aventura,diversão
+                                    e emoção.
+                                </p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="ml-4">24/11/2020</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="ml-4">04/10/2020</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4 flex-row-reverse">
-            <button type="button" class="btn btn-primary">
+                <div class="row mt-4 flex-row-reverse">
+                    <!-- <button type="button" class="btn btn-primary">
               <strong>+ Carregar Mais Avaliações</strong>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="entrevistas">
-        <div class="container">
-          <h2>Em Destaque</h2>
-          <div class="row">
-            <div class="col-sm">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <h4><b>Filme:</b> Nome do Filme</h4>
-              <p><b>Diretor:</b> Nome do Diretor</p>
-              <span><b>Roteiro:</b> Nome do Roteiro</span>
-              <span class="ml-2"><b>Estreia:</b> Nome do Roteiro</span>
-            </div>
-            <div class="col-sm">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <h4><b>Filme:</b> Nome do Filme</h4>
-              <p><b>Diretor:</b> Nome do Diretor</p>
-              <span><b>Roteiro:</b> Nome do Roteiro</span>
-              <span class="ml-2"><b>Estreia:</b> Nome do Roteiro</span>
-            </div>
-            <div class="col-sm">
-              <iframe
-                class="VideoFrame"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              ></iframe>
-              <h4><b>Filme:</b> Nome do Filme</h4>
-              <p><b>Diretor:</b> Nome do Diretor</p>
-              <span><b>Roteiro:</b> Nome do Roteiro</span>
-              <span class="ml-2"><b>Estreia:</b> Nome do Roteiro</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="novidades">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-9 col-sm-12">
-              <h2>Novidades</h2>
-              <div class="container">
-                <div class="row mt-4">
-                  <div class="col-sm-12 col-md-4">
-                    <img
-                      src="https://resizing.flixster.com/cMV0TodV6qsUSQCPFT343A__zUI=/250x180/v2/https://flxt.tmsimg.com/NowShowing/184832/184832_ab.jpg"
-                    />
-                  </div>
-
-                  <div class="col-sm-12 col-md-8">
-                    <h5>Título da Matéria</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      In condimentum, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar risus
-                    </p>
-                    <span class="badge badge-secondary">Badge1</span>
-                    <span class="badge badge-secondary">Badge2</span>
-                    <span class="badge badge-secondary">Badge3</span>
-                  </div>
+            </button> -->
                 </div>
-              </div>
-              <div class="container">
-                <div class="row mt-4">
-                  <div class="col-sm-12 col-md-4">
-                    <img
-                      src="https://resizing.flixster.com/cMV0TodV6qsUSQCPFT343A__zUI=/250x180/v2/https://flxt.tmsimg.com/NowShowing/184832/184832_ab.jpg"
-                    />
-                  </div>
-
-                  <div class="col-sm-12 col-md-8">
-                    <h5>Título da Matéria</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      In condimentum, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar risus
-                    </p>
-                    <span class="badge badge-secondary">Badge1</span>
-                    <span class="badge badge-secondary">Badge2</span>
-                    <span class="badge badge-secondary">Badge3</span>
-                  </div>
-                </div>
-              </div>
-              <div class="container">
-                <div class="row mt-4">
-                  <div class="col-sm-12 col-md-4">
-                    <img
-                      src="https://resizing.flixster.com/cMV0TodV6qsUSQCPFT343A__zUI=/250x180/v2/https://flxt.tmsimg.com/NowShowing/184832/184832_ab.jpg"
-                    />
-                  </div>
-
-                  <div class="col-sm-12 col-md-8">
-                    <h5>Título da Matéria</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      In condimentum, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar, ipsum ac hendrerit sagittis, felis felis
-                      pulvinar risus
-                    </p>
-                    <span class="badge badge-secondary">Badge1</span>
-                    <span class="badge badge-secondary">Badge2</span>
-                    <span class="badge badge-secondary">Badge3</span>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="col-lg-3 col-sm-12 mt-4 text-center-mobile">
-              <h2>Sobre</h2>
-              <div class="row">
-                <div class="col-sm-12">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    condimentum, ipsum ac hendrerit sagittis, felis felis
-                    pulvinar, ipsum ac hendrerit sagittis, felis felis pulvinar
-                    risus
-                  </p>
-                </div>
-              </div>
-              <h2 class="mt-4">Editorial</h2>
-              <div class="row">
-                <div class="col-sm-12">
-                  <p><b>Editorial: </b>Nome da Editorial</p>
-                  <p><b>Pesquisa: </b>Nome Pesquisa</p>
-                  <p><b>Gerente Geral: </b>Nome Gerente Geral</p>
-                </div>
-              </div>
-              <h2 class="mt-4">Redes Sociais</h2>
-              <div class="row d-flex justify-content-center">
-                <i class="fa fa-facebook" style="font-size: 40px"></i>
-                <span class="mr-4"></span>
-                <i class="fa fa-twitter" style="font-size: 40px"></i>
-                <span class="mr-4"></span>
-                <i class="fa fa-instagram" style="font-size: 40px"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <footer>
-        <div class="container d-flex justify-content-center">
-          <div class="row">
-            <span
-              >Copyright 2020 - Disciplina de Desenvolvimento de Interfaces Web
+        <section id="entrevistas">
+            <div class="container">
+                <h2>Entrevistas & MakingOf</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <iframe src="https://www.youtube.com/embed/LcXnxO3Tyh8" class="VideoFrame" frameborder="0" allowfullscreen></iframe>
+                        <h4><b>Filme:</b> Mulan</h4>
+                        <p><b>Diretor:</b> Niki Caro</p>
+                        <span><b>Roteiro:</b> Walt Disney Pictures</span>
+                    </div>
+                    <div class="col-sm">
+                        <iframe src="https://www.youtube.com/embed/H_Jix7UUddM" class="VideoFrame" frameborder="0" allowfullscreen></iframe>
+                        <h4><b>Filme:</b> Mulher Maravilha</h4>
+                        <p><b>Diretor:</b> Patty Jenkins</p>
+                        <span><b>Roteiro:</b> Warner Bros</span>
+                    </div>
+                    <div class="col-sm">
+                        <iframe src="https://www.youtube.com/embed/fgUyRVOSqlA" class="VideoFrame" frameborder="0" allowfullscreen></iframe>
+                        <h4><b>Filme:</b> 1917</h4>
+                        <p><b>Diretor:</b> Sam Mendes</p>
+                        <span><b>Roteiro:</b> Krysty Wilson-Cairns</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="novidades">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-sm-12">
+                        <h2>Novidades</h2>
+                        <div class="container">
+                            <div class="row mt-4">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <img src="http://br.web.img3.acsta.net/r_640_360/newsv7/20/12/06/01/05/0196938.jpg" />
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 col-lg-8">
+                                    <h5>
+                                        Irmãos Russo falam sobre Chadwick Boseman em painel da CCXP Worlds
+                                    </h5>
+                                    <p>
+                                        Os diretores Joe e Anthony Russo (Vingadores: Ultimato, Capitão América: Soldado Invernal) participaram de um painel virtual na noite deste sábado (05) na CCXP Worlds. Mediado pelo crítico do Collider Steven Weintraub, o bate-papo foi centrado nas produções
+                                        da dupla.
+                                    </p>
+                                    <span class="badge badge-secondary">Pantera Negra</span>
+                                    <span class="badge badge-secondary">CCPX</span>
+                                    <span class="badge badge-secondary">Vingadores</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row mt-4">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <img src="http://br.web.img3.acsta.net/r_640_360/newsv7/20/12/05/06/27/3034194.jpg" />
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 col-lg-8">
+                                    <h5>
+                                        O Poderoso Chefão - Desfecho: Confira tudo o que rolou no painel da CCXP 20
+                                    </h5>
+                                    <p>
+                                        O painel de O Poderoso Chefão - Desfecho: A Morte de Michael Corleone na CCXP foi extremamente nostálgico e emocionante. Exibida na Thunder Arena, a atração contou com a participação de Andy Garcia, que comentou sobre a reedição do terceiro capítulo da
+                                        trilogia clássica de Francis Ford Coppola.
+                                    </p>
+                                    <span class="badge badge-secondary">Poderoso Chefão</span>
+                                    <span class="badge badge-secondary">CCPX</span>
+                                    <span class="badge badge-secondary">Volta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row mt-4">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <img src="http://br.web.img3.acsta.net/r_640_360/newsv7/20/12/02/20/50/0853869.jpg" />
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 col-lg-8">
+                                    <h5>
+                                        Oscar 2021 terá cerimônia presencial, segundo Academia
+                                    </h5>
+                                    <p>
+                                        Após ter tido sua 93ª edição adiada para abril de 2021, tudo indica que a Academia de Artes e Ciências Cinematográficas realizará a premiação no formato presencial, como em todos os outros anos. A informação é da Variety.
+                                    </p>
+                                    <span class="badge badge-secondary">Oscar</span>
+                                    <span class="badge badge-secondary">Premiacão</span>
+                                    <span class="badge badge-secondary">Pandemia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 mt-4 text-center-mobile">
+                        <h2>Sobre</h2>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>
+                                    O Portal HeroMovie é um portal de filmes contendo os lançamentos com trailers e informações sobre o filme, filmes em destaque, avaliações de usuários sobre diversos filmes, entrevistas e makingof e novidades do mundo do cinema.
+                                </p>
+                            </div>
+                        </div>
+                        <h2 class="mt-4">Editorial</h2>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p><b>Editorial: </b>Lucas Braga Ferreira</p>
+                                <p><b>Pesquisa: </b>Lucas Braga Ferreira</p>
+                                <p><b>Gerente Geral: </b>Lucas Braga Ferreira</p>
+                            </div>
+                        </div>
+                        <h2 class="mt-4">Redes Sociais</h2>
+                        <div class="row">
+                            <span class="mr-4"></span>
+                            <i class="fa fa-facebook" style="font-size: 40px"></i>
+                            <span class="mr-4"></span>
+                            <i class="fa fa-twitter" style="font-size: 40px"></i>
+                            <span class="mr-4"></span>
+                            <i class="fa fa-instagram" style="font-size: 40px"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <span>Copyright 2020 - Disciplina de Desenvolvimento de Interfaces Web
               - <strong>ICEI PUC Minas</strong></span
             >
           </div>
@@ -616,22 +350,22 @@
       </footer>
     </main>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Bootstrap scripts -->
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="./js/global.js"></script>
   </body>
 </html>
