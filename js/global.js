@@ -1,109 +1,107 @@
 const API_TOKEN =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MGJlZTUyMGI2NGYxZWVmZmIzYjNjYjdlNjBiN2M0NCIsInN1YiI6IjVmY2MyYTQ1ODEzODMxMDAzZjgwODg0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ub851Tj0EDXxKE5AF_m6OvLIZXUG0_lXnQ8IndL7dW8";
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MGJlZTUyMGI2NGYxZWVmZmIzYjNjYjdlNjBiN2M0NCIsInN1YiI6IjVmY2MyYTQ1ODEzODMxMDAzZjgwODg0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ub851Tj0EDXxKE5AF_m6OvLIZXUG0_lXnQ8IndL7dW8";
 const API_BASE_URL = "https://api.themoviedb.org/3/";
 
-export const apiGet = async(url) => {
-    try {
-        const finalUrl = API_BASE_URL + url;
+export const apiGet = async (url) => {
+  try {
+    const finalUrl = API_BASE_URL + url;
 
-        const responsePromiss = await fetch(finalUrl, {
-            method: "GET",
-            headers: getHeaders(),
-        });
-        const response = await responsePromiss.json();
+    const responsePromiss = await fetch(finalUrl, {
+      method: "GET",
+      headers: getHeaders(),
+    });
+    const response = await responsePromiss.json();
 
-        return response;
-    } catch (error) {
-        return null;
-    }
+    return response;
+  } catch (error) {
+    return null;
+  }
 };
 
 const getHeaders = () => {
-    const headers = new Headers();
-    headers.append("Authorization", "Bearer " + API_TOKEN);
-    headers.append("Content-Type", "application/json");
+  const headers = new Headers();
+  headers.append("Authorization", "Bearer " + API_TOKEN);
+  headers.append("Content-Type", "application/json");
 
-    return headers;
+  return headers;
 };
 
-$(document).ready(async() => {
-    const nowPlaying = await getNowPlaying();
-    populateCarousel(nowPlaying);
+$(document).ready(async () => {
+  const nowPlaying = await getNowPlaying();
+  populateCarousel(nowPlaying);
 });
 
 async function getNowPlaying() {
-    try {
-        const response = await apiGet(
-            "/movie/now_playing?region=BR&language=pt-BR"
-        );
-        const nowPlaying = response.results;
+  try {
+    const response = await apiGet(
+      "/movie/now_playing?region=BR&language=pt-BR"
+    );
+    const nowPlaying = response.results;
 
-        return nowPlaying;
-    } catch (err) {
-        return null;
-    }
+    return nowPlaying;
+  } catch (err) {
+    return null;
+  }
 }
 
 async function getMovieDetails(movieId) {
-    try {
-        const movie = await apiGet(`/movie/${movieId}?region=BR&language=pt-BR`);
+  try {
+    const movie = await apiGet(`/movie/${movieId}?region=BR&language=pt-BR`);
 
-        return movie;
-    } catch (err) {
-        return null;
-    }
+    return movie;
+  } catch (err) {
+    return null;
+  }
 }
 
 function formatDate(date) {
-    return new Date(date).toLocaleDateString();
+  return new Date(date).toLocaleDateString();
 }
 
 function getCategoriesFlags(categories) {
-    let html = "";
+  let html = "";
 
-    categories.forEach((category, index) => {
-        const flag = `
+  categories.forEach((category, index) => {
+    const flag = `
           
                  <span> ${category.name}, </span> 
             
       `;
 
-        html += flag;
-    });
+    html += flag;
+  });
 
-    return html;
+  return html;
 }
 
 function getProductionCompaniesFlags(productionCompanies, imageBaseUrl) {
-    let html = "";
+  let html = "";
 
-    productionCompanies.forEach((pc, index) => {
-        if (pc.logo_path) {
-            const flag = `
+  productionCompanies.forEach((pc, index) => {
+    if (pc.logo_path) {
+      const flag = `
               <span>${pc.name},</span>
           `;
 
-            html += flag;
-        }
-    });
+      html += flag;
+    }
+  });
 
-    return html;
+  return html;
 }
 
 function populateCarousel(nowPlaying) {
-    const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
-    const carouselContainer = $(".carousel-inner");
-    const carouselIndicatorsContainer = $(".carousel-indicators");
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
+  const carouselContainer = $(".carousel-inner");
+  const carouselIndicatorsContainer = $(".carousel-indicators");
 
-    console.log("Fala");
+  console.log(nowPlaying);
 
-    console.log(nowPlaying);
+  nowPlaying.forEach(async (movie, index) => {
+    const movieDetails = await getMovieDetails(movie.id);
 
-    nowPlaying.forEach(async(movie, index) => {
-        const movieDetails = await getMovieDetails(movie.id);
-
-        if (movie.poster_path && movie.overview) {
-            const carouselItem = `
+    if (movie.poster_path && movie.overview) {
+      const carouselItem = `
           <div class="carousel-item${index === 0 ? " active" : ""}">
           <div class="container">
           <a href="https://www.imdb.com/title/${
@@ -178,12 +176,12 @@ function populateCarousel(nowPlaying) {
           </div>
   
           `;
-            const carouselIndicator = `
+      const carouselIndicator = `
               
           `;
 
-            carouselContainer.append(carouselItem);
-            carouselIndicatorsContainer.append(carouselIndicator);
-        }
-    });
+      carouselContainer.append(carouselItem);
+      carouselIndicatorsContainer.append(carouselIndicator);
+    }
+  });
 }
