@@ -64,22 +64,58 @@
               <a class="nav-link" href="#novidades">Novidades</a>
             </li>
           </ul>
-          <div class="justify-content-center">
-            <form class="form-inline my-2 my-lg-0" style="display: inline-flex">
+          <div class="d-flex justify-content-center">
+            <form class="form-inline my-2 my-lg-0">
               <input
-                id="search_input"
-                oninput="onInput()"
-                class="form-control mr-sm-2 ml-auto"
+                class="form-control mr-sm-2"
                 type="search"
                 placeholder="Pesquisar"
-                list="dropdown-menu"
+                aria-label="Search"
+                id="inputModal"
               />
-              <datalist id="dropdown-menu"></datalist>
             </form>
+            <button
+              class="btn btn-outline-primary my-2 my-sm-0"
+              id="buttonModal"
+            >
+              Pesquisar
+            </button>
           </div>
         </div>
       </nav>
     </header>
+
+    <!-- Modal -->
+    <div
+      class="modal fade example-modal-xl"
+      id="exampleModal"
+      tabindex="2"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      style="max-height: 80% !important"
+    >
+      <div class="modal-dialog modal-xl" style="max-width: 60% !important">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Filmes Encontrados!
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="modalBody" class="modalBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main>
       <section id="lancamentos">
@@ -515,5 +551,6 @@
       crossorigin="anonymous"
     ></script>
     <script type="module" src="./js/global.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
   </body>
 </html>
