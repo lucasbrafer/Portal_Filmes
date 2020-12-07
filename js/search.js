@@ -25,26 +25,40 @@ function searchListener() {
 
   this.obj.results.forEach((movie) => {
     if (movie.backdrop_path != null && movie.title != "") {
+      const movieDetails = getDetailMovie(movie.id);
+      console.log(movieDetails);
       const bodyItem = ` 
     <div class="controller overflow-auto mt-4" >
     <div class="row d-flex justify-content-center">
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+    <div class="col-lg-3 col-md-4 col-sm-12 d-flex justify-content-center">
         <a href="https://www.imdb.com/title/${
-          movie.title
+          movieDetails.imdb_id
         }" target="_blank"> <image
         class="VideoFrame mr-4"
-        src="${imageBaseUrl + movie.backdrop_path}"
-        style="max-width: 100% !important"
+        src="${imageBaseUrl + movie.poster_path}"
+        style="max-width: 70% !important"
       ></image>
       </a>
       </div>
-      <div class="col-lg-8 col-md-6 col-sm-12">
+      <div class="col-lg-9 col-md-8 col-sm-12">
       <div>
         <h3 class="text-left">${movie.title}</h3>
         <p class="text-left"> ${movie.overview}</p>
         <p class="text-left"><b>Data de Lançamento : </b> ${formatDate(
           movie.release_date
         )}</p>
+        
+        <p class="text-left">
+          <b>Estrelas: </b>
+          <span class="fa fa-star checked"></span>
+          ${movieDetails.vote_average}
+        </p>
+        <a href="https://www.imdb.com/title/${
+          movieDetails.imdb_id
+        } target="_blank">
+        <button type="button" class="btn btn-primary">Ver Mais..</button>
+        </a>
+       
       </div>
       </div>
         <hr/>
@@ -76,6 +90,25 @@ function searchApiData(movieName) {
   } catch (error) {
     console.log("error on api retriaving", error);
   }
+}
+
+function getApiUrl(idFilme) {
+  let apiBase =
+    `https://api.themoviedb.org/3/movie/${idFilme}?api_key=` +
+    "60bee520b64f1eeffb3b3cb7e60b7c44" +
+    "&region=BR&language=pt-BR";
+  return apiBase;
+}
+
+function getDetailMovie(idFilme) {
+  let url = getApiUrl(idFilme);
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+
+  xhttp.send();
+
+  return JSON.parse(xhttp.responseText);
 }
 
 function formatDate(date) {
