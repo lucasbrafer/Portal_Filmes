@@ -55,7 +55,7 @@ function searchListener() {
         </p>
         <a href="https://www.imdb.com/title/${
           movieDetails.imdb_id
-        } target="_blank">
+        }" target="_blank">
         <button type="button" class="btn btn-primary">Ver Mais..</button>
         </a>
        
