@@ -10,11 +10,7 @@ function myFunction() {
 function clearModal() {
   // limpar o modal
   const modalBody = $(".modal-body");
-  var child = modalBody.lastElementChild;
-  while (child) {
-    modalBody.removeChild(child);
-    child = modalBody.lastElementChild;
-  }
+  modalBody = "";
 }
 
 function searchListener() {
@@ -23,7 +19,9 @@ function searchListener() {
   console.log(this.obj.results[0].title);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
+
   const modalBody = $(".modal-body");
+  modalBody.empty();
 
   this.obj.results.forEach((movie) => {
     const bodyItem = ` 
@@ -39,7 +37,7 @@ function searchListener() {
       </a>
       <div>
         <h3>${movie.title}</h3>
-        <p> ${movie.overview}</p>
+        <p> ${movie.overview}</p>git
       </div>
         <hr/>
     </div>
