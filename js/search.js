@@ -24,26 +24,37 @@ function searchListener() {
   modalBody.empty();
 
   this.obj.results.forEach((movie) => {
-    const bodyItem = ` 
+    if (movie.backdrop_path != null && movie.title != "") {
+      const bodyItem = ` 
     <div class="controller overflow-auto mt-4" >
-    <div class="d-flex justify-content-center"> 
+    <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
         <a href="https://www.imdb.com/title/${
           movie.title
         }" target="_blank"> <image
         class="VideoFrame mr-4"
         src="${imageBaseUrl + movie.backdrop_path}"
-        
+        style="max-width: 100% !important"
       ></image>
       </a>
+      </div>
+      <div class="col-lg-8 col-md-6 col-sm-12">
       <div>
-        <h3>${movie.title}</h3>
-        <p> ${movie.overview}</p>git
+        <h3 class="text-left">${movie.title}</h3>
+        <p class="text-left"> ${movie.overview}</p>
+        <p class="text-left"><b>Data de Lançamento : </b> ${formatDate(
+          movie.release_date
+        )}</p>
+      </div>
       </div>
         <hr/>
     </div>
   </div>
   `;
-    modalBody.append(bodyItem);
+
+      modalBody.append(bodyItem);
+    } else {
+    }
   });
 }
 
@@ -65,4 +76,8 @@ function searchApiData(movieName) {
   } catch (error) {
     console.log("error on api retriaving", error);
   }
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString();
 }
